@@ -6,7 +6,16 @@ public class PLAY_with_character_CLASS{
 		String ff= S.toLowerCase();
         return ff ;
       }
-
+	static String isVowel(char c){
+		String d="";
+		d+=c;
+        if(d.matches("[aeiouAEIOU]")) {
+        	return "YES";
+        	
+        }
+        
+       return "NO";
+    }
 	
 	
 	 static String removeVowels(String S) {
@@ -24,6 +33,7 @@ public class PLAY_with_character_CLASS{
 		split_string(text);
 		String e5=toLower("deDgjotoSFsd");
 	System.out.println(e5);
+	System.out.println(isVowel('e'));
 	}
 	
      
