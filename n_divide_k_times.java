@@ -16,7 +16,7 @@ public class n_divide_k_times {
 	    				}
 	    			}
 	    			
-	    			if(x>=div) {
+	    			if(x>div) {
 	    				c++;
 	    			}
 	    			
