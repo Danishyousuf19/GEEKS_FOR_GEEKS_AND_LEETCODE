@@ -31,9 +31,9 @@ public class print_in_stream {
 	    }
 	 public static void main(String[] args) {
 			// TODO Auto-generated method stub
-
+System.out.println(FirstNonRepeating2darray("aa"));
 		}
-	 public String FirstNonRepeating2darray(String A)
+	 public  static String FirstNonRepeating2darray(String A)
 	    {
 		 StringBuilder ans= new StringBuilder();
 		 int freq[][]=new int[26][2];
@@ -45,7 +45,7 @@ public class print_in_stream {
 			 int min=Integer.MAX_VALUE;
 //			 get char of frequency =1 and minimum index
 			 for(int j=0;j<26;j++) {
-				 if(freq[j][0]==1&&freq[j][i]<min) {
+				 if(freq[j][0]==1&&freq[j][1]<min) {
 					 min=freq[j][1];
 					 res_ch=j;//store that character
 				 }
