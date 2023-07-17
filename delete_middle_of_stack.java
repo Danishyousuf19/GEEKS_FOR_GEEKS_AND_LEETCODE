@@ -2,7 +2,7 @@ import java.util.Stack;
 
 public class delete_middle_of_stack {
 	public void deleteMid(Stack<Integer>s,int sizeOfStack){
-		int mid=sizeOfStack/2;
+		int mid=sizeOfStack/2i;
 		helper(s,mid);
 		    }
 	static void helper(Stack <Integer>a,int mid)
