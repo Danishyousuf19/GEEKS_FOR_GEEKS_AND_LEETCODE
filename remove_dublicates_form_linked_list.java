@@ -7,7 +7,7 @@ public class remove_dublicates_form_linked_list {
 	    Node next;
 	     Node(int d) {
 	        data = d; 
-	        next = null;
+	        next = null; 
 	    }
 	}
 	 public static  Node removeDuplicates(Node head) 
