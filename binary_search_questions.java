@@ -38,6 +38,8 @@ public class binary_search_questions {
 		}
 		return e;
 	}
+//	order agnostic binary search
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
