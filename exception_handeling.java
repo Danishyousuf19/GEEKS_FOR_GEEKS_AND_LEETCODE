@@ -26,9 +26,9 @@ public void findMin() {
 		if(a/b<min) min=a/b;
 		if(a-b<min) min=a-b;
 	}
-	catch(Exception e) {
+	catch(Exception e) {}
 		System.out.println(min);
-	}
+	
 }
 		
     

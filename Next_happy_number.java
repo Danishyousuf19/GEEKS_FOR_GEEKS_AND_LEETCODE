@@ -4,10 +4,15 @@ public class Next_happy_number {
 		int nxt=N+1;
 		while(true) {
 			if(chk(nxt)==1) {
-				return 1;
+				return nxt;
+				
 			}
+			else {
+				nxt++;
+			}
+			
 		}
-		return 0;
+		
 	}
 	static int chk(int n) {
 		if(n==1||n==7)return 1;

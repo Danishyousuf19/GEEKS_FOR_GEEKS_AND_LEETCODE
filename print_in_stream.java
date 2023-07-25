@@ -31,7 +31,7 @@ public class print_in_stream {
 	    }
 	 public static void main(String[] args) {
 			// TODO Auto-generated method stub
-System.out.println(FirstNonRepeating2darray("aa"));
+System.out.println(FirstNonRepeating2darray("abacab"));
 		}
 	 public  static String FirstNonRepeating2darray(String A)
 	    {
