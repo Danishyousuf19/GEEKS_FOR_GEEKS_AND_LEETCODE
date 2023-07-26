@@ -33,16 +33,21 @@ public class rotated_array_search {
 	    }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int []a= {3,1};
-System.out.println(search(a,0));
+		int []a= {2,2,7,2,2};
+System.out.println(search(a,7));
 	}
+//	no dulicates
 	  public static int search(int[] nums, int target) {
 		  int l=0,h=nums.length-1;
 		  while(l<=h) {
 			  int mid=l+(h-l)/2;
 			  if(nums[mid]==target)
 				  return mid;
-			  if(nums[l]<=nums[mid]) {
+			  if (nums[l] == nums[mid]) {
+		            l++;
+		            continue;
+		        }
+			  if(nums[l]<=nums[mid]) {//assending
 				  if(target>=nums[l]&&target<nums[mid])
 					  h=mid-1;
 				  else
