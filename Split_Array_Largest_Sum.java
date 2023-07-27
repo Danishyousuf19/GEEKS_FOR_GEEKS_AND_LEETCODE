@@ -33,5 +33,35 @@ public class Split_Array_Largest_Sum {
 		// TODO Auto-generated method stub
 
 	}
+	 static int splitArray(int[] arr , int N, int K) {
+	        int s=0,e=0;
+	        for(int i:arr) {
+	        	s=Math.max(s, i);
+	        	e+=i;
+	        }
+	        while(s<e) {
+	        	int m=s+(e-s)/2;
+	        	int sum=0;
+	        	int p=1;
+	        	for(int k:arr) {
+	        		if(sum+k>m) {
+	        			sum=k;
+	        			p++;
+	        		}
+	        		else {
+	        			sum+=k;
+	        		}
+	        	}
+	        	if(p>K) {
+	        		s=m+1;
+	        	}
+	        	else {
+	        		e=m;
+	        	}
+	        }
+	        return s;
+	        		
+	    }
+	 
 
 }
