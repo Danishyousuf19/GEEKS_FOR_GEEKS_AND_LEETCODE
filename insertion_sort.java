@@ -1,20 +1,17 @@
+import java.util.Arrays;
 
 public class insertion_sort {
-	 static void insert(int arr[],int i)
-	  {int current=arr[i];
-	  int j=i-1;
-	  while(j>=0&current<arr[j]) {
-		  //push;
-		  arr[j+1]=arr[j];
-		  j--;
-	  }
-	  arr[j+1]=current;
-	       // Your code here
-	  }
+	
 	  //Function to sort the array using insertion sort algorithm.
-	  public void insertionSort(int arr[], int n)
-	  {for(int i=0;i<n-1;i++) {
-		  insert(arr,i);
+	  public static void insertionSort(int arr[], int n)
+	  {for(int i=1;i<n;i++) {
+		  int curr=arr[i];
+		  int j=i-1;
+		  while(j>=0&&curr<arr[j]) {
+			  arr[j+1]=arr[j];
+			  j--;
+		  }
+		  arr[j+1]=curr;
 		  
 		  
 	  }
@@ -23,7 +20,26 @@ public class insertion_sort {
 //	  
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		int aa[]= {1,42,2,5,4};
+		insertionSort(aa,5);
+		System.out.println(Arrays.toString(aa));
+	}
+	static void sort(int[] a) {
+		for (int i=0;i<=a.length-2;i++) {
+			for(int j=i+1;j>0;j--) {
+				if(a[j]<a[j-1]) {
+					swap(a,j,j-1);
+				}
+				else {
+					break;
+				}
+			}
+		}
+	}
+	static void swap(int a[],int s,int e) {
+		int t=a[s];
+		a[s]=a[e];
+		a[e]=t;
 	}
 
 }
