@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class print_altternative {
+public class merge_2d {
 
 	 public static ArrayList<Integer> mergeKArrays(int[][] arr,int K) 
 	    {
