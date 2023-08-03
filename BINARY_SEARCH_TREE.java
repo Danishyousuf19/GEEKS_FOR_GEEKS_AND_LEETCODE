@@ -54,6 +54,51 @@ public class BINARY_SEARCH_TREE {
 			inorder(root.right);
 		}
 
+		static node delete(node root, int d) {
+			if (root.data > d) {
+				root.left = delete(root.left, d);
+			} else if (root.data < d) {
+				root.right = delete(root.right, d);
+			}
+			// if ==
+			else {
+//				CASE 1
+				if (root.left == null && root.right == null)
+					return null;
+//				case 2
+				if (root.left == null)
+					return root.right;
+				else if (root.right == null)
+					return root.left;
+//				case 3
+				node IS = InorderSuccessor(root.right);
+				root.data = IS.data;
+				root.right = delete(root.right, IS.data);
+			}
+			return root;
+		}
+
+		static node InorderSuccessor(node root) {
+			while (root.left != null) {
+				root = root.left;
+			}
+			return root;
+		}
+
+		static void printInRange(node root, int x, int y) {
+			if (root == null)
+				return;
+			if (root.data >= x && root.data <= y) {
+				printInRange(root.left, x, y);
+				System.out.print(root.data + " ");
+				printInRange(root.right, x, y);
+			} else if (root.data >= y) {
+				printInRange(root.left, x, y);
+			} else {
+				printInRange(root.right, x, y);
+			}
+		}
+
 	}
 
 	public static void main(String[] args) {
@@ -63,6 +108,12 @@ public class BINARY_SEARCH_TREE {
 		System.out.println(root.data);
 		System.out.println(b.search(root, 2));
 		b.inorder(root);
+		System.out.println("before deleting node");
+		b.delete(root, 3);
+		System.out.println("after deleting node");
+		b.inorder(root);
+		System.out.println("print in range");
+		b.printInRange(root, 3, 6);
 
 	}
 
