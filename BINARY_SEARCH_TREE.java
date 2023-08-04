@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class BINARY_SEARCH_TREE {
 
@@ -98,6 +99,24 @@ public class BINARY_SEARCH_TREE {
 				printInRange(root.right, x, y);
 			}
 		}
+		public static void print(ArrayList<Integer>l) {
+			for(int i=0;i<l.size();i++) {
+				System.out.print(l.get(i)+"-->");
+			}
+			System.out.println();
+		}
+		static void printPath(node root,ArrayList<Integer>path) {
+			if(root==null) return;
+			path.add(root.data);
+			if(root.left==null&&root.right==null) {
+				print(path);
+			}
+			else {
+				printPath(root.left,path);
+				printPath(root.right,path);
+			}
+			path.remove(path.size()-1);
+		}
 
 	}
 
@@ -107,13 +126,15 @@ public class BINARY_SEARCH_TREE {
 		node root = b.build(nodes);
 		System.out.println(root.data);
 		System.out.println(b.search(root, 2));
-		b.inorder(root);
 		System.out.println("before deleting node");
-		b.delete(root, 3);
-		System.out.println("after deleting node");
 		b.inorder(root);
-		System.out.println("print in range");
+		b.delete(root, 3);
+		System.out.println("\nafter deleting node");
+		b.inorder(root);
+		System.out.println("\nprint in range");
 		b.printInRange(root, 3, 6);
+		System.out.println("\nprint path to leaf");
+		b.printPath(root, new ArrayList<Integer>());
 
 	}
 

@@ -5,7 +5,7 @@ public class permutation_arraylist {
 	 static void helper(String s, String permu, List<String> list) {
 	        if (s.length() == 0) {
 	            list.add(permu);
-	            return;
+	            return; 
 	        }
 	        for (int i = 0; i < s.length(); i++) {
 	            char current = s.charAt(i);
