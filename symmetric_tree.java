@@ -1,0 +1,26 @@
+
+public class symmetric_tree {
+	 public class TreeNode {
+		    int val;
+		    TreeNode left;
+		    TreeNode right;
+		    TreeNode() {}
+		    TreeNode(int val) { this.val = val; }
+		    TreeNode(int val, TreeNode left, TreeNode right) {
+		        this.val = val;
+		        this.left = left;
+		        this.right = right;
+		    }
+		}
+	 public boolean isSymmetric(TreeNode root) {
+	        return find(root.left,root.right);
+	    }
+	 static boolean find(TreeNode l,TreeNode r) {
+		 if(l==null&&r==null)return true;
+		 if(l==null || r==null) return false;
+		 if(l.val!=r.val)return false;
+		 return find(l.right,r.left)&&find(l.left, r.right);
+			 
+	 }
+	}
+
