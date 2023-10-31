@@ -59,6 +59,32 @@ static void bfs2(ArrayList<edge>graph[],int cur ,boolean[]vis) {
 	}
 	
 }
+
+static void dfs(ArrayList<edge>graph[],int curr ,boolean vis[]) {
+	System.out.print(curr+" ");
+	vis[curr]=true;
+	for(int i=0;i<graph[curr].size();i++) {
+		edge e=graph[curr].get(i);
+		if(vis[e.dest]==false)dfs(graph,e.dest,vis);
+	}
+}
+
+//print all path
+static void  printAllPath(String path,int dst,int target,ArrayList<edge>[]graph,boolean vis[]) {
+	if(dst==target) {
+		System.out.println(path);
+		return;
+	}
+	for(int i=0;i<graph[dst].size();i++){
+		edge e=graph[dst].get(i);
+		if(vis[e.dest]==false) {
+			vis[e.dest]=true;
+			printAllPath(path+e.dest, e.dest, target, graph, vis);
+			vis[e.dest]=false;
+		}
+	}
+	
+}
 	public static void main(String[] args) {
 		int  v=4;//vertics no
 		ArrayList<edge>graph[]=new ArrayList[v];//Initially null//first change to empty
@@ -69,11 +95,23 @@ static void bfs2(ArrayList<edge>graph[],int cur ,boolean[]vis) {
 			System.out.println(e.src+"-->"+e.dest);
 		}
 		bfs(graph, v);
+		System.out.println();
 //for not connneccted
+		boolean vis[]=new boolean[v];
 		for(int i=0;i<v;i++) {
-			boolean vis[]=new boolean[v];
-			if(vis[i]==false) {
+			
+			if(!vis[i]) {
 				bfs2(graph, i, vis);
+			}
+		}
+		System.out.println();
+		boolean vis2[]=new boolean[v];
+		boolean vis3[]=new boolean[v];
+		dfs(graph, 0, vis2);
+//		/notconnected/
+		for(int i=0;i<v;i++) {
+			if(vis3[i]==false) {
+				dfs(graph,i,vis);
 			}
 		}
 	}
