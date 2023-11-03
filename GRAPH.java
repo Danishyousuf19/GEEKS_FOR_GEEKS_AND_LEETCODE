@@ -85,6 +85,28 @@ static void  printAllPath(String path,int dst,int target,ArrayList<edge>[]graph,
 	}
 	
 }
+static void untiltop(ArrayList<edge>graph[],int curr,boolean vis[],Stack<Integer>s) {
+	vis[curr]=true;
+	for(int i=0;i<graph[curr].size();i++) {
+		edge e=graph[curr].get(i);
+		if(!vis[e.dest]) {
+			untiltop(graph, e.dest, vis, s);
+		}
+	}
+	s.push(curr);
+	
+}
+static void topological(ArrayList<edge>graph[],int v) {
+	boolean[]vis=new boolean[v];
+	Stack<Integer>s=new Stack<>();
+	for(int i=0;i<v;i++) {
+		if(!vis[i])untiltop(graph, i, vis, s);
+	}
+	for(int i=0;i<s.size();i++) {
+		System.out.print(s.pop()+" ");
+	}
+}
+
 	public static void main(String[] args) {
 		int  v=4;//vertics no
 		ArrayList<edge>graph[]=new ArrayList[v];//Initially null//first change to empty
@@ -114,5 +136,7 @@ static void  printAllPath(String path,int dst,int target,ArrayList<edge>[]graph,
 				dfs(graph,i,vis);
 			}
 		}
+		System.out.println();
+		topological(graph, v);
 	}
 }
