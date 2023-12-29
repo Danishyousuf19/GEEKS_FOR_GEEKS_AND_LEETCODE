@@ -23,6 +23,41 @@ public class GRAPH {
 		graph[3].add(new edge(3,1));
 		graph[3].add(new edge(3,2));
 	}
+	//problem infinte loop in cycle
+//	static void printAllPathUsingStack(int v, int start, int tar, ArrayList<edge> graph[]) {
+//		Stack<Integer> s = new Stack<>();
+//		boolean vis[] = new boolean[v];
+//		List<Integer> path = new ArrayList<>();
+//	    path.add(start);
+//		
+//		while (!s.isEmpty()) {
+//			int curr = s.peek();
+//			if (curr == tar) {
+//				System.out.println(path);
+//				path.remove(path.size() - 1);
+//				s.pop();
+//				continue;
+//
+//			}
+//			 boolean hasUnvisitedNode = false;
+//			for (int i = graph[curr].size() - 1; i >= 0; i--) {
+//				edge e = graph[curr].get(i);
+//				 if (!vis[e.dest]) {
+//		                vis[e.dest] = true;
+//		                path.add(e.dest);
+//		                s.push(e.dest);
+//		                hasUnvisitedNode = true;
+//		                break;
+//		            }
+//			}
+//			if (!hasUnvisitedNode) {
+//	            vis[curr] = false;
+//	            path.remove(path.size() - 1);
+//	            s.pop();
+//	        }
+//
+//		}
+//	}
 static void bfs(ArrayList<edge>graph[],int v) {
 	Queue<Integer>q=new LinkedList();
 	boolean vis[]=new boolean[v];
