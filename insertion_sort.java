@@ -20,6 +20,8 @@ public class insertion_sort {
 //	  
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		StringBuilder s=new StringBuilder();
+		Runtime.getRuntime().totalMemory();
 		int aa[]= {1,42,2,5,4};
 		insertionSort(aa,5);
 		System.out.println(Arrays.toString(aa));
