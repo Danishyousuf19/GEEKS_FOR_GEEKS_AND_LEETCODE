@@ -1,4 +1,7 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 //You don't need to read input or print anything. Your task is to complete 
 //the function count() which takes the string S as input and returns an array 
@@ -27,9 +30,25 @@ static 	int[] count (String s)
     }
 	public static void main(String[] args) {
 		int x[]=count("*GeEkS4GeEkS*");
-		System.out.println(Arrays.toString(x));
-		
+//		System.out.println(Arrays.toString(x));
+		count_unique();
 
+	}
+	static void count_unique() {
+		int arr[]= {1,2,3,4,5,5,4};
+		int c=0;
+		Set<Integer>set=new HashSet<>();
+		for(int i :arr) {
+			if(!set.contains(i)) {
+				set.add(i);
+				c++;
+			}
+			else {
+				c--;
+			}
+		}
+		System.out.println(c);
+		
 	}
 
 }

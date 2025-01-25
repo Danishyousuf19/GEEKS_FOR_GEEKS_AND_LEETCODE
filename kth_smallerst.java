@@ -1,11 +1,8 @@
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 public class kth_smallerst {
-	 public static int kthSmallest(int[] arr, int l, int r, int k) 
-	    { Arrays.sort(arr);
-		    return arr[k-1];
-	        
-	    } 
+
 	    public static int kthSmallest(int[] arr, int l, int r, int k) {
 	    if (k > 0 && k <= r - l + 1) {
 	        // Partition the array around a pivot
@@ -49,7 +46,22 @@ public class kth_smallerst {
 	} 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		UsingPQ();
 	}
+
+	private static void UsingPQ() {
+		// TODO Auto-generated method stub
+		PriorityQueue<Integer>q=new PriorityQueue<>((a,b)->b-a);
+		int k=3;
+		int as[]= {1,13,34,4,31,2,23,234,4};
+		for(int i :as) {
+			q.offer(i);
+			if(q.size()>k) {
+				q.poll();
+			}
+		}
+		System.out.println(q.peek());
+	}
+	
 
 }
